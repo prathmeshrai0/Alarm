@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+</head>
+
+<body>
+    <div class="container" style="color: red; font-size: large; font-weight: bold;">
+        Raise volume of device
+
+    </div>
+    <label for="">Submit your time after which alarm should be played</label> <br>
+    <input type="text" id="inputTime">
+    <button onclick="getTime()">Submit time</button><br>
+    <script>
+        let container = document.getElementsByClassName('container')[0]
+        let inputTimeValue;
+        function playSound(t) {
+            setInterval(() => {
+
+                console.log('playsound running');
+                let audio = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg')
+                audio.play()
+                console.log('play');
+            }, t * 1000);
+        }
+        setTimeout(() => {
+
+            let text = document.createElement('div')
+            text.innerText = 'KINDLY RAISE VOLUME OF YOUR DEVICE'
+            text.style = 'color: orange; font-size: large; font-weight: bold;'
+            document.body.append(text)
+
+        }, 5000);
+        setTimeout(() => {
+            playSound()
+        }, 7000);
+
+
+
+    </script>
+</body>
+
+</html>
